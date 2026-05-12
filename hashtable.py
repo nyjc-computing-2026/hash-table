@@ -46,7 +46,7 @@ class HashTable:
         If the key already exists in the hash table, the existing value
         is overwritten.
         """
-        i = _hash_key(key)
+        i = _hash_key(key) % self.size
         self._data[i] = value
 
     def getitem(self, key: str) -> dict:
@@ -54,7 +54,7 @@ class HashTable:
 
         If the key does not exist, a KeyError is raised.
         """
-        i = _hash_key(key)
+        i = _hash_key(key) % self.size
         value = self._data[i]
         if value is None:
             raise KeyError(f"'{key}' not found")
@@ -65,7 +65,7 @@ class HashTable:
 
         If the key does not exist, a KeyError is raised.
         """
-        i = _hash_key(key)
+        i = _hash_key(key) % self.size
         if self._data[i] is None:
             raise KeyError(f"'{key}' not found")
         self._data[i] = None
