@@ -38,7 +38,6 @@ class HashTable:
         # Add your code here
 
     def __repr__(self) -> str:
-        """returns a formatted string containing the values in the hash table"""
         return f"HashTable(size={self.size})"
 
     def setitem(self, key: str, value: dict) -> None:
@@ -51,14 +50,14 @@ class HashTable:
 
     def getitem(self, key: str) -> dict:
         """Retrieves the value associated with key, and returns it.
-        
+
         If the key does not exist, a KeyError is raised.
         """
         raise NotImplementedError
-        
+
     def delitem(self, key: str) -> None:
         """Deletes the key and its associated value from the hash table.
-        
+
         If the key does not exist, a KeyError is raised.
         """
         raise NotImplementedError
@@ -78,7 +77,6 @@ class HashTableLinearProbing(HashTable):
         # Add your code here
 
     def __repr__(self) -> str:
-        """returns a formatted string containing the values in the hash table"""
         return f"HashTableLinearProbing(size={self.size})"
 
     def setitem(self, key: str, value: dict) -> None:
@@ -91,14 +89,14 @@ class HashTableLinearProbing(HashTable):
 
     def getitem(self, key: str) -> dict:
         """Retrieves the value associated with key, and returns it.
-        
+
         If the key does not exist, a KeyError is raised.
         """
         raise NotImplementedError
-        
+
     def delitem(self, key: str) -> None:
         """Deletes the key and its associated value from the hash table.
-        
+
         If the key does not exist, a KeyError is raised.
         """
         raise NotImplementedError
@@ -118,7 +116,6 @@ class HashTableSeparateChaining(HashTable):
         # Add your code here
 
     def __repr__(self) -> str:
-        """returns a formatted string containing the values in the hash table"""
         return f"HashTableLinearProbing(size={self.size})"
 
     def setitem(self, key: str, value: dict) -> None:
@@ -131,14 +128,14 @@ class HashTableSeparateChaining(HashTable):
 
     def getitem(self, key: str) -> dict:
         """Retrieves the value associated with key, and returns it.
-        
+
         If the key does not exist, a KeyError is raised.
         """
         raise NotImplementedError
-        
+
     def delitem(self, key: str) -> None:
         """Deletes the key and its associated value from the hash table.
-        
+
         If the key does not exist, a KeyError is raised.
         """
         raise NotImplementedError
