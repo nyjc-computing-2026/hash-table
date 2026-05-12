@@ -1,3 +1,4 @@
+from linkedlist import LinkedList
 
 
 def _hash_key(key: str, p: int = 53) -> int:
@@ -204,7 +205,9 @@ class HashTableSeparateChaining(HashTable):
 
     def __init__(self, size: int):
         super().__init__(size)
-        # Add your code here
+        self._data: list[LinkedList] = [None] * size
+        for i in range(len(self._data)):
+            self._data[i] = LinkedList()
 
     def __repr__(self) -> str:
         return f"HashTableLinearProbing(size={self.size})"
@@ -215,18 +218,21 @@ class HashTableSeparateChaining(HashTable):
         If the key already exists in the hash table, the existing value
         is overwritten.
         """
-        raise NotImplementedError
+        i = _hash_key(key)
+        self._data[i].set(key, value)
 
     def getitem(self, key: str) -> dict:
         """Retrieves the value associated with key, and returns it.
 
         If the key does not exist, a KeyError is raised.
         """
-        raise NotImplementedError
+        i = _hash_key(key)
+        return self._data[i].get(key)
 
     def delitem(self, key: str) -> None:
         """Deletes the key and its associated value from the hash table.
 
         If the key does not exist, a KeyError is raised.
         """
-        raise NotImplementedError
+        i = _hash_key(key)
+        self._data[i].delete(key)
