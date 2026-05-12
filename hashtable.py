@@ -94,7 +94,7 @@ class HashTableLinearProbing(HashTable):
 
         Note: key and value are stored together as a (key, value) tuple
         """
-        start = _hash_key(key)
+        start = _hash_key(key) % self.size
         i = start
         # Probe until the starting point is reached again (with wraparound)
         while i + 1 != start:
@@ -119,7 +119,7 @@ class HashTableLinearProbing(HashTable):
 
         If the key does not exist, a KeyError is raised.
         """
-        start = _hash_key(key)
+        start = _hash_key(key) % self.size
         i = start
         # Probe until the starting point is reached again (with wraparound)
         while i + 1 != start:
@@ -141,7 +141,7 @@ class HashTableLinearProbing(HashTable):
 
         If the key does not exist, a KeyError is raised.
         """
-        start = _hash_key(key)
+        start = _hash_key(key) % self.size
         i = start
         # Probe until the starting point is reached again (with wraparound)
         while i + 1 != start:
@@ -184,7 +184,7 @@ class HashTableLinearProbing(HashTable):
             if slot is None:  # (4)
                 return
             key, value = slot  # (1)
-            if _hash_key(key) == i:  # (2)
+            if _hash_key(key) % self.size == i:  # (2)
                 return
             # (3) Reinsert key-value pair after removal
             self._data[i] = None
